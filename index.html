@@ -1,59 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Convert-Json</title>
 </head>
 
 <body>
-
-  <br>First Name: <input id="firstname" value="John">
-  <br>Last Name:<input id="lastname" value="Pavek">
-  <br>Email:<input id="email" value="Example@example.com">
-  <br>
-  <button onclick="convertToJSON()">Convert</button>
-  <button onclick="saveToFile()">Save</button>
-  <hr> output: <br>
-  <textarea id="output"></textarea>
-
-  <script>
-    function convertToJSON() {
-      var firstname = document.getElementById('firstname').value;
-      var lastname = document.getElementById('lastname').value;
-      var email = document.getElementById('email').value;
-
-      var jsonObject = {
-        "FirstName": firstname,
-        "LastName": lastname,
-        "email": email
-      }
-
-      document.getElementById('output').value = JSON.stringify(jsonObject)
-    }
-
-    function saveToFile() {
-      convertToJSON();
-      var jsonObjectAsString = document.getElementById('output').value;
-
-      var blob = new Blob([jsonObjectAsString], {
-        //type: 'application/json'
-        type: 'octet/stream'
-      });
-      console.log(blob);
-
-      var anchor = document.createElement('a')
-      anchor.download = "user.json";
-      anchor.href = window.URL.createObjectURL(blob);
-      anchor.innerHTML = "download"
-      anchor.click();
-
-      console.log(anchor);
-
-      document.getElementById('output').append(anchor)
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-header">
+            Type Your Information
+          </div>
+          <div class="card-body">
+            <div class="mb-3">
+              <label for="firstname" class="form-label">First Name:</label>
+              <input class="form-control" id="firstname" value="John">
+            </div>
+            <div class="mb-3">
+              <label for="lastname" class="form-label">Last Name:</label>
+              <input class="form-control" id="lastname" value="Pavek">
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email:</label>
+              <input class="form-control" id="email" value="Example@example.com">
+            </div>
+          </div>
+          <div class="card-footer">
+            <button onclick="convertToJSON()" class="w-100 btn btn-success">Convert</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-header">Output</div>
+          <div class="card-body">
+            <textarea id="output" class="form-control" rows="10"></textarea>
+          </div>
+          <div class="card-footer text-center">
+            <button onclick="saveToFile()" class="w-100 btn btn-warning">Download</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
-    }
-  </script>
+
+  </div>
+  <!--  -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="main.js"> </script>
 </body>
 
 </html>
