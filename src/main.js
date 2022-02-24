@@ -32,3 +32,15 @@ function saveToFile() {
 
   document.getElementById("output").append(anchor);
 }
+
+// generatePDF
+
+function generatePDF() {
+  const element = document.getElementById("output").value;
+  html2pdf().from(element).save();
+}
+
+// Editor
+var editor = ace.edit("editor");
+editor.setTheme("ace/theme/monokai");
+editor.session.setMode("ace/mode/javascript");
