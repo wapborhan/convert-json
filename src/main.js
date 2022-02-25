@@ -9,12 +9,12 @@ function convertToJSON() {
     email: email,
   };
 
-  document.getElementById("output").value = JSON.stringify(jsonObject);
+  editor.setValue(JSON.stringify(jsonObject, null, "\t"));
 }
 
 function saveToFile() {
   convertToJSON();
-  var jsonObjectAsString = document.getElementById("output").value;
+  var jsonObjectAsString = editor.getValue();
 
   var blob = new Blob([jsonObjectAsString], {
     //type: 'application/json'
@@ -28,19 +28,53 @@ function saveToFile() {
   anchor.innerHTML = "download";
   anchor.click();
 
-  console.log(anchor);
+  // console.log(anchor);
 
-  document.getElementById("output").append(anchor);
+  document.getElementById("editor").append(anchor);
 }
 
 // generatePDF
-
 function generatePDF() {
-  const element = document.getElementById("output").value;
+  // var element = editor.getValue();
+  const element = document.getElementById("card");
   html2pdf().from(element).save();
 }
 
 // Editor
 var editor = ace.edit("editor");
-editor.setTheme("ace/theme/monokai");
-editor.session.setMode("ace/mode/javascript");
+editor.session.setMode("ace/mode/json");
+editor.getSession().setMode("ace/mode/json");
+editor.setTheme("ace/theme/xcode");
+editor.renderer.setShowGutter();
+editor.session.setTabSize(4);
+
+editor.find("needle", {
+  backwards: false,
+  wrap: false,
+  caseSensitive: false,
+  wholeWord: false,
+  regExp: false,
+});
+editor.findNext();
+editor.findPrevious();
+
+// // download code
+// function download(filename, text) {
+//   var element = document.createElement("a");
+//   element.setAttribute(
+//     "href",
+//     "data:text/plain;charset=utf-8," + encodeURIComponent(text)
+//   );
+//   element.setAttribute("download", filename);
+
+//   element.style.display = "none";
+//   document.body.appendChild(element);
+
+//   element.click();
+
+//   document.body.removeChild(element);
+// }
+// editor.change();
+// function save() {
+//   download("file.html", editor.getValue());
+// }

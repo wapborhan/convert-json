@@ -15,6 +15,11 @@
       bottom: 0;
       left: 0;
     }
+
+    .pst-rltv {
+      position: relative;
+      height: 290px;
+    }
   </style>
 </head>
 
@@ -46,14 +51,14 @@
         </div>
       </div>
       <div class="col-lg-6">
-        <div id="editor">function foo(items) {
-          var x = "All this is syntax highlighted";
-          return x;
-          }</div>
+
         <div class="card">
           <div class="card-header">Output</div>
-          <div class="card-body">
-            <textarea id="output" class="form-control" rows="10"></textarea>
+          <div id="card" class="card-body pst-rltv">
+            <div id="editor" class=" h-100">
+
+            </div>
+            <!-- <textarea id="output"  rows="10"></textarea> -->
           </div>
           <div class="card-footer text-center d-flex ">
             <button onclick="saveToFile()" class="w-50 btn btn-info">Download as JSON</button>
@@ -70,6 +75,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="src/html2pdf.bundle.js"> </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.14/ace.js"> </script>
   <script src="src/main.js"> </script>
 
 </body>
