@@ -12,4 +12,4 @@ Simple Form to convert JSON.
 You need to [Convert JSON](https://code.wapborhan.com/convert-json/)
 
 #Screenshoot
-![screenshoot](/assets/images/tux.png)
+![screenshoot](/src/convert-json.png)
