@@ -1,14 +1,28 @@
 function convertToJSON() {
   var object = document.getElementById("object").value;
-  var firstname = document.getElementById("firstname").value;
-  var lastname = document.getElementById("lastname").value;
-  var email = document.getElementById("email").value;
+  var object2 = document.getElementById("object2").value;
+  //
+  var key1 = document.getElementById("key1").value;
+  var value1 = document.getElementById("value1").value;
+  //
+  var key2 = document.getElementById("key2").value;
+  var value2 = document.getElementById("value2").value;
+  //
+  var key3 = document.getElementById("key3").value;
+  var value3 = document.getElementById("value3").value;
+  //
+  var key4 = document.getElementById("key4").value;
+  var value4 = document.getElementById("value4").value;
+  //
 
   var jsonObject = {
     object: {
-      FirstName: firstname,
-      LastName: lastname,
-      email: email,
+      key1: value1,
+      key2: value2,
+      key3: value3,
+      object2: {
+        key4: value4,
+      },
     },
   };
 
